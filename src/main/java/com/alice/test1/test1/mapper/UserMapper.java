@@ -4,9 +4,10 @@ package com.alice.test1.test1.mapper;
 import com.alice.test1.test1.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
 
 
-
+@Component(value = "UserMapper")
 public interface UserMapper {
     @Select("SELECT * FROM users WHERE id = #{id}")
     User findById(int id);
