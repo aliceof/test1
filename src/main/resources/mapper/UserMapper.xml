@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<mapper namespace="com.alice.test1.test1.mapper">
-    <select id="findByUsername" resultType="com.alice.test1.test1.model">
-        SELECT * FROM users WHERE username=#{username}
-    </select>
-</mapper>

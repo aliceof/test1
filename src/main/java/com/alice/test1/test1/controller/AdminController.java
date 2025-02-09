@@ -1,5 +1,5 @@
 package com.alice.test1.test1.controller;
-
+import com.alice.test1.test1.Service.userService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,7 +12,7 @@ public class AdminController {
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestParam String username,@RequestParam String password){
         try{
-            userServicce.registerUser(username,password);
+            userService.registerUser(username,password);
 
         return ResponseEntity.ok("ユーザー登録成功");
     }catch (IllegalArgumentException e){

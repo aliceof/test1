@@ -1,6 +1,13 @@
 package com.alice.test1.test1.Service;
 
+import com.alice.test1.test1.model.User;
+
 public interface userService {
-    boolean login(String username,String password);
-    User register(String username, String password);
+    static boolean login(String username, String password) {
+        return false;
+    }
+
+    static User registerUser(String username, String password) {
+        return null;
+    }
 }

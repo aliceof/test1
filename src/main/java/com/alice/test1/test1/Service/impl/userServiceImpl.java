@@ -19,13 +19,13 @@ public class userServiceImpl implements userService{
 
     @Override
     @RequestMapping("/register")
-    public User register(String username, String rawPassword){
+    public User registerUser(String username, String rawPassword){
         if (userMapper.findByUsername!=null){
             throw new IllegalArgumentException("このユーザー名は既に使われている");
         }
         User user=new User();
         user.setUsername(username);
-        user.setPassword(passwordEncoder.encode(rawPassword));
+        user.setPassword((passwordEncoder.encode(rawPassword)));
         return userMapper.save(user);
     }
     @Override
