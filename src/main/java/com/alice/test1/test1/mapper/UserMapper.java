@@ -5,7 +5,6 @@ import com.alice.test1.test1.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Component;
 
 
 @Mapper
