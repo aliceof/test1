@@ -8,6 +8,14 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 </head>
 <body>
+<form action="/login" method="post">
+    <label for="id">id:</label>
+    <input type="text" id="id" name="id" required><br>
 
+    <label for="password">password:</label>
+    <input type="text" id="password" name="rawpassword" required><br>
+
+    <button type="submit">login</button>
+</form>
 </body>
 </html>

@@ -1,7 +1,9 @@
 package com.alice.test1.test1.controller;
 import com.alice.test1.test1.Service.userService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.util.JpaMetamodel;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +17,8 @@ public class AdminController {
     private userService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestParam int id,@RequestParam String rawpassword){
+    public ResponseEntity<String> register(@RequestParam int id, @RequestParam String rawpassword, Model model){
+        model.addAttribute("message","ユーザー登録");
         try{
             userService.registerUser(id,rawpassword);
 
@@ -23,6 +26,7 @@ public class AdminController {
     }catch (IllegalArgumentException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+
     }
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestParam int id,@RequestParam String rawpassword){
