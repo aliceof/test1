@@ -1,26 +1,23 @@
 package com.alice.test1.test1.controller;
-import com.alice.test1.test1.Service.userService;
+import com.alice.test1.test1.Service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.util.JpaMetamodel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.awt.desktop.ScreenSleepEvent;
-
 @RestController
 public class AdminController {
 
     @Autowired
-    private userService userService;
+    private RegisterService RegisterService;
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestParam int id, @RequestParam String rawpassword, Model model){
+    public ResponseEntity<String> register(@RequestParam String username, @RequestParam String rawpassword, Model model){
         model.addAttribute("message","ユーザー登録");
         try{
-            userService.registerUser(id,rawpassword);
+            RegisterService.registerUser(username,rawpassword);
 
         return ResponseEntity.ok("ユーザー登録成功");
     }catch (IllegalArgumentException e){
@@ -28,13 +25,5 @@ public class AdminController {
         }
 
     }
-    @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestParam int id,@RequestParam String rawpassword){
-        boolean success=userService.login(id,rawpassword);
-        if (success){
-            return ResponseEntity.ok("ログイン成功");
-        }else {
-            return ResponseEntity.badRequest().body("ログイン失敗");
-        }
-    }
+
 }
