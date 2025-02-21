@@ -13,8 +13,8 @@ public class AuthenConfig {
         http.
                 authorizeHttpRequests(auth->auth
                 .requestMatchers("/login", "/register").permitAll()
-                .requestMatchers("/admin/**").hasRole("ADMIN")
-                .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN").anyRequest().authenticated())
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN").anyRequest().authenticated())
                 .cors(Customizer.withDefaults())
                 .csrf(csrf->csrf.disable())
                 .formLogin(form->form.loginPage("/login").permitAll())

@@ -6,7 +6,7 @@
     <title>Alice食品記録desu</title>
 </head>
 <body>
-<form th:action="@{/foodnote}" method="get">
+<form th:action="@{/foodnote}" method="post">
     <label for="foodnote">食品記録</label>
     <input type="text" id="foodnote" name="foodnote" th:value="${foodnote}" required>
     <button type="submit">食品記録desu</button>

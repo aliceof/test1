@@ -1,6 +1,7 @@
 package com.alice.test1.test1.controller;
 import com.alice.test1.test1.Service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import static java.lang.System.out;
 
-@RestController
+@Controller
 public class RegisterController {
 
     @Autowired

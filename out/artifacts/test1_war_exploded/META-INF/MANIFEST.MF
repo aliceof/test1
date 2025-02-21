@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: 艾雷
+Build-Jdk: Oracle OpenJDK 22.0.1
+Implementation-Title: test1
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.alice.test1
+Main-Class: ${start-class}
+
