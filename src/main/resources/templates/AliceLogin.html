@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Aliceログイン</title>
+    <link href="../../../static/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<form th:action="@{/login}" method="post">
+    <label for="username">username:</label>
+    <input type="text" id="username" name="username" th:value="${username}" required><br>
+
+    <label for="password">password:</label>
+    <input type="text" id="password" name="rawpassword" th:value="${rawpassword}" required><br>
+
+    <button type="submit">login</button>
+</form>
+</body>
+</html>

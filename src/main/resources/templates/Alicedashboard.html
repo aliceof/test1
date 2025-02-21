@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Alice食品記録desu</title>
+</head>
+<body>
+<form th:action="@{/foodnote}" method="get">
+    <label for="foodnote">食品記録</label>
+    <input type="text" id="foodnote" name="foodnote" th:value="${foodnote}" required>
+    <button type="submit">食品記録desu</button>
+</form>
+</body>
+</html>
