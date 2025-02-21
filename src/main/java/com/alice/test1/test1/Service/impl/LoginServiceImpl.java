@@ -5,15 +5,22 @@ import com.alice.test1.test1.mapper.UserMapper;
 import com.alice.test1.test1.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service
+@Transactional(isolation = Isolation.READ_COMMITTED)
 public class LoginServiceImpl implements LoginService {
 
+    @Autowired
     private UserMapper userMapper;
+
+
     private final BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
 
     @Override
-    @RequestMapping("/login")
+
     public boolean login(String username, String rawPassword){
         User user = userMapper.findUserByName(username);
         if (user==null){
