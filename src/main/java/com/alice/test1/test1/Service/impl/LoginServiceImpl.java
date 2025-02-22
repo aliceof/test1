@@ -21,11 +21,11 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
 
-    public boolean login(String username, String rawPassword){
+    public boolean login(String username, String rawpassword){
         User user = userMapper.findUserByName(username);
-        if (user==null){
+        if (user==null) {
             return false;
         }
-        return passwordEncoder.matches(rawPassword,user.getPassword());
+        return passwordEncoder.matches(rawpassword, user.getPassword());
     }
 }
