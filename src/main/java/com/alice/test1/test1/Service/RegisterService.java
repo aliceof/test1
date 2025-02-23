@@ -1,6 +1,6 @@
 package com.alice.test1.test1.Service;
 
-import com.alice.test1.test1.model.User;
+import com.alice.test1.test1.entity.User;
 
 public  interface RegisterService {
 

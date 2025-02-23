@@ -1,8 +1,8 @@
 package com.alice.test1.test1.Service.impl;
 
 import com.alice.test1.test1.Service.LoginService;
-import com.alice.test1.test1.mapper.UserMapper;
-import com.alice.test1.test1.model.User;
+import com.alice.test1.test1.repository.UserRepository;
+import com.alice.test1.test1.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class LoginServiceImpl implements LoginService {
 
     @Autowired
-    private UserMapper userMapper;
+    private UserRepository userRepository;
 
 
     private final BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
@@ -22,7 +22,7 @@ public class LoginServiceImpl implements LoginService {
     @Override
 
     public boolean login(String username, String rawpassword){
-        User user = userMapper.findUserByName(username);
+        User user = userRepository.findUserByUsername(username);
         if (user==null) {
             return false;
         }
