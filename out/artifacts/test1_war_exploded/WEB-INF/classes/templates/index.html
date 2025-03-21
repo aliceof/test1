@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Aliceログイン</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+    <style>
+        .login-btn{
+            width: 100%;
+            height: 40px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;}
+    </style>
+</head>
+<body>
+<form th:action="@{/}"  accept-charset="UTF-8" method="post">
+    <label for="username">username:</label>
+    <input type="text" id="username" name="username"  placeholder="请输入用户名"  required><br>
+
+    <label for="password">password:</label>
+    <input type="text" id="password" name="rawpassword"  placeholder="请输入密码"  required><br>
+
+    <button type="submit" class="login-btn">login</button>
+</form>
+
+<div class="links">
+    <a href="/Retrievepassword">找回密码</a>
+    <a href="/register">注册账户</a>
+</div>
+</body>
+</html>

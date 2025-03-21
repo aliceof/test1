@@ -1,0 +1,4 @@
+CREATE TABLE `logs`(
+id int NOT NULL AUTO_INCREMENT
+name varchar DEFAULT NULL
+)

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/register}"  th:object="${user}" method="post">
+    <label for="username">username:</label>
+    <input type="text" id="username" name="username" th:field="${username}" placeholder="请输入用户名" required><br>
+
+    <label for="password">password:</label>
+    <input type="text" id="password" name="rawpassword" th:field="${rawpassword}" placeholder="请输入密码" required><br>
+
+    <button type="submit">登録成功</button>
+</form>
+</body>
+</html>
