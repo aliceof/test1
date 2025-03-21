@@ -9,23 +9,29 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @Service
 @Transactional(isolation = Isolation.READ_COMMITTED)
 public class LoginServiceImpl implements LoginService {
 
     @Autowired
     private UserRepository userRepository;
-
-
-    private final BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
+    private static final Logger logger = LogManager.getLogger(LoginServiceImpl.class);
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Override
-
-    public boolean login(String username, String rawpassword){
+    public boolean login(String username, String rawpassword) {
         User user = userRepository.findUserByUsername(username);
-        if (user==null) {
+        if (user == null) {
+            logger.warn("用户名或密码为空");
             return false;
         }
-        return passwordEncoder.matches(rawpassword, user.getPassword());
+        if (passwordEncoder.matches(rawpassword, user.getPassword())) {
+            logger.info("登录成功");
+        }
+        return true;
     }
 }
+
