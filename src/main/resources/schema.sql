@@ -1,4 +1,4 @@
-CREATE TABLE `log` (
+CREATE TABLE IF NOT EXISTS `log` (
                        `log_id` int(11) NOT NULL AUTO_INCREMENT,
                        `project_name` varchar(255) DEFAULT NULL COMMENT '目项名',
                        `create_date` varchar(255) DEFAULT NULL COMMENT '创建时间',
